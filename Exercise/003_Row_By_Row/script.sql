@@ -1,0 +1,6 @@
+SELECT emp_no, salary,
+  COUNT(salary) OVER (
+    PARTITION BY emp_no
+    ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+  )
+FROM salaries;

@@ -28,5 +28,12 @@ GRANT admin_role TO super_user;
 REVOKE admin_role FROM super_user;
 
 
+-- Giving privileges to role
+GRANT SELECT ON table1 TO super_user;
+
+-- Taking privileges from role
+REVOKE SELECT ON table1 TO super_user;
+
+
 -- Delete role
 DROP ROLE super_user;

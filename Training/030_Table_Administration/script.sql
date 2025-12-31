@@ -4,7 +4,7 @@ student_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
 full_name VARCHAR(255) NOT NULL,
 date_of_birth DATE NOT NULL,
 email TEXT UNIQUE,
-
+mark_id INT REFERENCES marks(id) -- Foreign Key
 );
 
 -- Instaling uuid_generate_v4()
@@ -37,6 +37,13 @@ ALTER COLUMN email TYPE VARCHAR(320);
 -- Changing column name
 ALTER TABLE student
 RENAME COLUMN date_of_birth TO birth_date;
+
+-- Adding Foreign Key
+ALTER TABLE student
+ADD CONSTRAINT student_mark_fk
+FOREIGN KEY (mark_id)
+REFERENCES marks(id);
+
 
 -- Delete everything in a table
 TRUNCATE TABLE student;
